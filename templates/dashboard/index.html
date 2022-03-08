@@ -1,0 +1,114 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block title %}
+Dashboard Index
+{% endblock title %}
+
+{% block content %}
+
+<!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Email</span>
+
+              <span class="info-box-number">{{ email }}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Blog</span>
+              <span class="info-box-number">{{ blog }}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Keyword</span>
+              <span class="info-box-number">{{ keyword }}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Content</span>
+
+              <span class="info-box-number">{{ content }}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Campaign</span>
+              <span class="info-box-number">{{ campaign }}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Report</span>
+              <span class="info-box-number">{{ report }}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+      </div>
+      <!-- /.row -->
+
+</section>
+    <!-- /.content -->
+
+
+{% endblock content %}

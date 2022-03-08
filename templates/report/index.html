@@ -1,0 +1,74 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block title %}
+Report Index
+{% endblock title %}
+
+{% block content %}
+
+ <!-- Main content -->
+      <section class='content'>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <div class='box'>
+
+              {% if messages %}
+
+                  {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message | safe }}
+                    </div>
+                  {% endfor %}
+
+              {% endif %}
+
+              <div class='box-header'>
+                <h3 class='box-title'>REPORT LIST </h3>
+              </div><!-- /.box-header -->
+              <div class='box-body'>
+              <table class="table table-bordered table-striped" id="mytable">
+                  <thead>
+                      <tr>
+                          <th>Blog Name</th>
+                          <th>Post Date</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                      </tr>
+                  </thead>
+              <tbody>
+                      {% if reports %}
+                      {% for report in reports %}
+                      <tr>
+                          <td>{{ report.blog }}</td>
+                          <td>{{ report.postdate }}</td>
+                          <td>{{ report.status }}</td>
+                          <td>
+                              <a href="{% url 'report-delete' report.id %}" class="btn btn-danger btn-sm">Delete</a>
+                          </td>
+                      </tr>
+                      {% endfor %}
+                    {% else %}
+                      <tr>
+                        <td colspan="5">Data not found.</td>
+                      </tr>
+                    {% endif %}
+                  </tbody>
+              </table>
+              <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
+              <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
+              <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
+              <script type="text/javascript">
+                  $(document).ready(function () {
+                      $("#mytable").dataTable();
+                  });
+              </script>
+                  </div><!-- /.box-body -->
+            </div><!-- /.box -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </section>
+<!-- /.content -->
+
+{% endblock content %}

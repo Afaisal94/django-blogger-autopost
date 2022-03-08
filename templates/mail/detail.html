@@ -1,0 +1,54 @@
+{% extends '../base.html' %}
+
+{% load static %}
+
+{% block title %}
+Mail Detail
+{% endblock title %}
+
+{% block content %}
+
+<!-- Main content -->
+      <section class='content'>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <div class='box'>
+
+              {% if messages %}
+
+                  {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                      {{ message | safe }}
+                  </div>
+                  {% endfor %}
+
+              {% endif %}
+
+              <div class='box-header'>
+                <h3 class='box-title'>MAIL DETAIL </h3>
+              </div><!-- /.box-header -->
+              <div class='box-body'>
+
+                <table class="table table-bordered table-striped">
+                  <tr>
+                    <td>Email</td>
+                    <td>{{ mail.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>Password</td>
+                    <td>{{ mail.password }}</td>
+                  </tr>
+                </table>
+
+              </div><!-- /.box-body -->
+            </div><!-- /.box -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </section>
+<!-- /.content -->
+
+
+{% endblock content %}
