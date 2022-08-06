@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 
-# keyword = 'Bitcoin'
+keyword = 'Bitcoin'
+post_num = 10
 headers = {
         'user-agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36',
     }
@@ -54,3 +55,5 @@ def get_article(url):
 
     return row
 
+
+print(get_bbc(keyword, post_num))

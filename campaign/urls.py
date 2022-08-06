@@ -8,4 +8,5 @@ urlpatterns = [
     path('update/<int:id>', views.CampaignUpdate.as_view(), name='campaign-update'),
     path('delete/<int:id>', views.CampaignDelete.as_view(), name='campaign-delete'),
     path('run/<int:id>', views.CampaignRun.as_view(), name='campaign-run'),
+    path('run-all/', views.CampaignRunAll.as_view(), name='campaign-run-all'),
 ]

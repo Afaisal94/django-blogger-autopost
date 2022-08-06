@@ -1,4 +1,4 @@
-{% extends '../base.html' %}
+{% extends '../layout.html' %}
 
 {% load static %}
 
@@ -8,10 +8,10 @@ Campaign Detail
 
 {% block content %}
 
-<!-- Main content -->
+<!-- Main content_news -->
       <section class='content'>
         <div class='row'>
-          <div class='col-xs-12'>
+          <div class='col-lg-12'>
             <div class='box'>
 
               {% if messages %}
@@ -51,7 +51,13 @@ Campaign Detail
                   </tr>
                     <tr>
                     <td>Status</td>
-                    <td>{{ campaign.status }}</td>
+                    <td>
+                    {% if campaign.status == "ACTIVE" %}
+                        <span class="badge badge-success">{{ campaign.status }}</span>
+                    {% else %}
+                        <span class="badge badge-danger">{{ campaign.status }}</span>
+                    {% endif %}
+                    </td>
                   </tr>
 
                 </table>
@@ -61,7 +67,7 @@ Campaign Detail
           </div><!-- /.col -->
         </div><!-- /.row -->
       </section>
-<!-- /.content -->
+<!-- /.content_news -->
 
 
 {% endblock content %}

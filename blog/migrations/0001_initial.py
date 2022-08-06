@@ -20,6 +20,8 @@ class Migration(migrations.Migration):
                 ('blog', models.CharField(max_length=255)),
                 ('email_post', models.EmailField(max_length=255, unique=True)),
                 ('email', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mail.mail')),
+                ('batch', models.IntegerField()),
+                ('url_blogger', models.CharField(max_length=255)),
             ],
         ),
     ]

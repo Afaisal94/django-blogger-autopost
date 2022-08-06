@@ -1,4 +1,4 @@
-{% extends '../base.html' %}
+{% extends '../layout.html' %}
 
 {% load static %}
 
@@ -8,107 +8,87 @@ Dashboard Index
 
 {% block content %}
 
-<!-- Main content -->
+<!-- Main content_news -->
     <section class="content">
 
       <div class="row">
 
-      <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-aqua"></span>
+        <div class="col-lg-4 col-6">
 
-            <div class="info-box-content">
-              <span class="info-box-text">Email</span>
-
-              <span class="info-box-number">{{ email }}</span>
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>{{ email }}</h3>
+              <p>Gmail</p>
             </div>
-            <!-- /.info-box-content -->
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-          <!-- /.info-box -->
+
         </div>
-        <!-- /.col -->
 
-      <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-green"></span>
+        <div class="col-lg-4 col-6">
 
-            <div class="info-box-content">
-              <span class="info-box-text">Blog</span>
-              <span class="info-box-number">{{ blog }}</span>
+          <div class="small-box bg-primary">
+            <div class="inner">
+              <h3>{{ blog }}</h3>
+              <p>Blog</p>
             </div>
-            <!-- /.info-box-content -->
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-          <!-- /.info-box -->
+
         </div>
-        <!-- /.col -->
 
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"></span>
+        <div class="col-lg-4 col-6">
 
-            <div class="info-box-content">
-              <span class="info-box-text">Keyword</span>
-              <span class="info-box-number">{{ keyword }}</span>
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>{{ keyword }}</h3>
+              <p>Keyword</p>
             </div>
-            <!-- /.info-box-content -->
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-          <!-- /.info-box -->
+
         </div>
-        <!-- /.col -->
+
+        <div class="col-lg-4 col-6">
+
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>{{ content_news }}</h3>
+              <p>Content News</p>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+
+        </div>
+
+        <div class="col-lg-4 col-6">
+
+          <div class="small-box bg-primary">
+            <div class="inner">
+              <h3>{{ content_agc }}</h3>
+              <p>Content AGC</p>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+
+        </div>
+
+        <div class="col-lg-4 col-6">
+
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>{{ campaign }}</h3>
+              <p>Campaign</p>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+
+        </div>
 
       </div>
-      <!-- /.row -->
 
-      <div class="row">
-
-      <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-aqua"></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Content</span>
-
-              <span class="info-box-number">{{ content }}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-
-      <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-green"></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Campaign</span>
-              <span class="info-box-number">{{ campaign }}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Report</span>
-              <span class="info-box-number">{{ report }}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-
-      </div>
-      <!-- /.row -->
-
-</section>
-    <!-- /.content -->
+    </section>
+    <!-- /.content_news -->
 
 
 {% endblock content %}

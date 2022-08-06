@@ -14,7 +14,7 @@ def get_cnn(keyword, post_num):
         title = d['headline']
         img_url = d['thumbnail']
         article = d['body']
-        new_article = str(article).replace(".", ". <br><br> ")
+        new_article = '<p>' + str(article).replace(".", ". </p><p> ")
         content = {
             'title': title,
             'img_url': img_url,

@@ -17,7 +17,8 @@ class DashboardIndex(LoginRequiredMixin, View):
         email = len(Mail.objects.all())
         blog = len(Blog.objects.all())
         keyword = len(Keyword.objects.all())
-        content = len(Content.objects.all())
+        content_news = len(Content.objects.filter(type='NEWS'))
+        content_agc = len(Content.objects.filter(type='AGC'))
         campaign = len(Campaign.objects.all())
         report = len(Report.objects.all())
 
@@ -25,7 +26,8 @@ class DashboardIndex(LoginRequiredMixin, View):
             'email': email,
             'blog': blog,
             'keyword': keyword,
-            'content': content,
+            'content_news': content_news,
+            'content_agc': content_agc,
             'campaign': campaign,
             'report': report
         })

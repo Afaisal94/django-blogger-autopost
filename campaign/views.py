@@ -76,21 +76,23 @@ class CampaignDelete(LoginRequiredMixin, View):
 
 class CampaignRun(View):
     def get(self, request, id):
+        # VAR 1
         campaign = Campaign.objects.get(pk=id)
         blog = campaign.blog
         keyword = campaign.keyword
 
-        # Run Post
+        # VAR 2
         blog = Blog.objects.get(blog=blog)
-        email = Mail.objects.get(email=blog.email)
+        email = Mail.objects.get(pk=blog.email_id)
 
         email_sender = email.email
         password_sender = email.password
         email_post = blog.email_post
 
-        contents = Content.objects.filter(keyword=keyword)[:2]
+        # LOOPING CONTENT BY KEYWORD - BERAPA BANYAK CONTENT (10)
+        contents = Content.objects.filter(keyword=keyword)[:5]
         for content in contents:
-            # Send Mail
+            # SEND MAIL
             subject = content.title
             html_message = content.article
             send_mail(
@@ -104,16 +106,70 @@ class CampaignRun(View):
                 html_message=html_message
             )
 
-        # Insert Report
+            # DELETE CONTENT
+            content = Content.objects.get(pk=content.id)
+            content.delete()
+
+            time.sleep(3)
+
+        # INSERT REPORT
         report = Report(blog=blog, keyword=keyword, status='SUCCESS')
         report.save()
 
-        # Delete Content
-        content = Content.objects.get(pk=content.id)
-        content.delete()
+        time.sleep(5)
 
-        # Jeda waktu 10 detik
-        time.sleep(10)
+        messages.success(request, 'Sukses Run Campaign.')
+        return HttpResponseRedirect(reverse('campaign-index'))
+
+class CampaignRunAll(View):
+    def get(self, request):
+        # GET ALL
+        campaigns = Campaign.objects.filter(status='ACTIVE')
+        # LOOPING CAMPAIGNS
+        for c in campaigns:
+            id = c.id
+
+            # VAR 1
+            campaign = Campaign.objects.get(pk=id)
+            blog = campaign.blog
+            keyword = campaign.keyword
+
+            # VAR 2
+            blog = Blog.objects.get(blog=blog)
+            email = Mail.objects.get(email=blog.email)
+
+            email_sender = email.email
+            password_sender = email.password
+            email_post = blog.email_post
+
+            # LOOPING CONTENT BY KEYWORD - BERAPA BANYAK CONTENT (10)
+            contents = Content.objects.filter(keyword=keyword)[:5]
+            for content in contents:
+                # SEND MAIL
+                subject = content.title
+                html_message = content.article
+                send_mail(
+                    subject=subject,
+                    message=html_message,
+                    from_email=email_sender,
+                    recipient_list=[email_post, ],
+                    auth_user=email_sender,
+                    auth_password=password_sender,
+                    fail_silently=False,
+                    html_message=html_message
+                )
+
+                # DELETE CONTENT
+                content = Content.objects.get(pk=content.id)
+                content.delete()
+
+                time.sleep(3)
+
+            # INSERT REPORT
+            report = Report(blog=blog, keyword=keyword, status='SUCCESS')
+            report.save()
+
+            time.sleep(5)
 
         messages.success(request, 'Sukses Run Campaign.')
         return HttpResponseRedirect(reverse('campaign-index'))
